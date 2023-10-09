@@ -32,3 +32,104 @@ nav li a {
 nav li a:hover {
     background-color: #3492eb;
 }
+
+ul {
+    list-style-type: none;
+}
+
+/*
+     ___________________________
+    /                          /
+   /        * NAVBAR *        /
+  /__________________________/
+
+*/
+
+.navbar {
+    z-index: 3;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 0 50px;
+}
+  
+.navbar ul li {
+    opacity: 100%;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+  
+.navbar ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+.navbar ul li a:hover {
+    background-color: #111;
+}
+
+/*
+     ___________________________
+    /                           /
+   /        * PRODUCT *        /
+  /__________________________ /
+
+*/
+
+.bg-protein {
+    text-align: center;
+    background: url(./Images/Protein.jpg);
+    margin: 10% 10% 0 10%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.search-item {
+    color: black;
+    font-size: 30px;
+}
+
+.block {
+    margin: 0 20% 0 20%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.top-block {
+    background-color: white;
+    padding: 10px 0 10px 0;
+}
+
+.bot-block {
+    background-color: white;
+    padding: 10px 0 10px 0;
+}
+
+.list-products {
+    padding: 0 0 100px 0;
+}
+
+.product {
+    padding-top: 10px;
+}
+
+#searchbar {
+    border-radius: 0.75rem;
+    background: transparent;
+    padding: 0.75em;
+    resize: none;
+    border: 2px solid #3492eb;
+}
