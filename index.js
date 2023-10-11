@@ -1,5 +1,10 @@
 //HOME PAGE
 
+let btn = document.querySelector('.text-content');
+btn.addEventListener("click", () => {
+    fermerPopup();
+})
+
 function fermerPopup() {
     let page = document.querySelector(".page-content");
     let close = document.querySelector(".pop-up");
@@ -20,5 +25,5 @@ if(test == 'false'){
     
 }
 
-//PRODUCT PAGE
+//Carousel product
 

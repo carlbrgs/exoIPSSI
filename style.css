@@ -2,46 +2,22 @@ body{
     font-family: sans-serif;
 }
 
+.text-important{
+    text-align: center;
+    color: #212529;
+    padding: 15px;
+}
+
 .page-content{
     filter: blur(5px)
 }
 
-nav {
-    background-color: #333;
-    display: flex;
-    flex-direction: row;
-    align-items: center
-}
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-nav li {
-    float: left;
-}
-
-nav li a {
-    display: flex;
-    flex-direction: column;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-nav li a:hover {
-    background-color: #3492eb;
-}
-
-.pop-up{
-    width: 300px;
-    height: 200px;
+.pop-up {
+    width: 500px; /* Largeur agrandie */
+    height: 250px; /* Hauteur agrandie */
     color: #3492eb;
-    background-color:white;
+    background-color: white;
     border: 1px solid #ccc;
     position: fixed;
     top: 50%;
@@ -49,7 +25,184 @@ nav li a:hover {
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 1000;
+    border-radius: 15px; /* Bords arrondis */
+    display: flex; /* Utilisation de flexbox pour les deux parties */
 }
-.text-popup{
+
+.pop-up .left-part {
+    flex: 1; /* La partie de gauche prend 50% de l'espace */
+    background-color: #3492eb; /* Fond bleu pour la partie de gauche */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.pop-up .right-part {
+    flex: 1; /* La partie de droite prend 50% de l'espace */
+    background-image: url('logo.png'); /* Image en fond pour la partie de droite */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.text-content{
+    margin-top: auto;
+}
+.text-popup {
     font-size: larger;
+    color: white; /* Texte blanc pour la partie de gauche */
 }
+
+.img-popup {
+    width: 40%; /* Ajustez la taille de l'image au besoin */
+    height: 40%;
+}
+
+.button-popup {
+    margin-top: 10px; /* Marge supplémentaire pour le bouton */
+}
+
+/* Style pour le label et l'input */
+input[type="checkbox"] {
+    display: none; /* Cacher l'input checkbox */
+}
+
+label {
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #3492eb;
+    color: white;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: gray; /* Style du label lorsqu'il est coché */
+}
+
+/*NAVBAR*/
+
+.navbar {
+    background-color: #3492eb;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+
+.search-button {
+    background-color: white;
+    color: #3492eb;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #ccc;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #3492eb;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/*CAROUSEL*/
+
+.carousel-container {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s;
+}
+
+.carousel-item {
+    flex: 0 0 calc(33.33% - 20px);
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.carousel-control-button {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #3492eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
