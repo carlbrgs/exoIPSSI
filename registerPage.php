@@ -29,6 +29,7 @@ $nickname = $_POST['nickname'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$request = inser
+$request = "INSERT INTO USERS (pseudo, email, mdp) VALUES ('$nickname', '$email', '$password')";
+$result = $result->exec($request);
 
 ?>
