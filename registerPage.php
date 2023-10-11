@@ -1,7 +1,6 @@
 <?php 
 session_start();
-
-include ('./connexion.php')
+include('./connexion.php');
 ?>
 
 <!DOCTYPE html>
@@ -33,13 +32,11 @@ include ('./connexion.php')
 if(isset($_POST['nickname'])){
     $nickname = $_POST['nickname'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
     $stmt = $mysqli->prepare("INSERT INTO users(pseudo, email, password) VALUES (?, ?, ?)");
-    
 
     $stmt->bind_param("sss", $nickname, $email, $password);
-
     $stmt->execute();
 }
 
