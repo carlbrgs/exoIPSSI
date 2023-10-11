@@ -1,10 +1,17 @@
+<?php 
+session_start();
+
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$mysqli = new mysqli("localhost", "root", "", "bddsite");
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
-        <form action="login.html" method="post">
+        <form action="" method="post">
             <div class="form-group">
                 <label for="exampleInputNickname1">Pseudonyme</label>
                 <input type="text" class="form-control" id="exampleInputNickname1" aria-describedby="NicknameHelp" placeholder="Entrer pseudo" name="nickname">
@@ -24,12 +31,16 @@
 </html>
 
 <?php
+if(isset($_POST['nickname'])){
+    $nickname = $_POST['nickname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-$nickname = $_POST['nickname'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+    $stmt = $mysqli->prepare("INSERT INTO users(pseudo, email, password) VALUES (?, ?, ?)");
 
-$request = "INSERT INTO USERS (pseudo, email, mdp) VALUES ('$nickname', '$email', '$password')";
-$result = $result->exec($request);
+    $stmt->bind_param("sss", $nickname, $email, $password);
+
+    $stmt->execute();
+}
 
 ?>
