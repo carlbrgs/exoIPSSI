@@ -2,6 +2,11 @@ body{
     font-family: sans-serif;
 }
 
+b{
+    color:#3492eb;
+}
+
+
 .text-important{
     text-align: center;
     color: #212529;
@@ -74,7 +79,7 @@ input[type="checkbox"] {
     display: none; /* Cacher l'input checkbox */
 }
 
-label {
+.label-popup {
     cursor: pointer;
     padding: 5px 10px;
     background-color: #3492eb;
@@ -86,6 +91,25 @@ label {
 input[type="checkbox"]:checked + label {
     background-color: gray; /* Style du label lorsqu'il est coché */
 }
+
+
+.image-with-text-section{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5%;
+    margin-bottom: 10%;
+
+  }  
+
+  .text-of-image{
+    margin-left: 4%;
+  }
 
 /*NAVBAR*/
 
@@ -306,4 +330,11 @@ ul {
     padding: 0.75em;
     resize: none;
     border: 2px solid #3492eb;
+}
+
+
+/*Contact*/
+
+.form-contact{
+    margin-bottom: 50px !important;
 }
