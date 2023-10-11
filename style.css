@@ -2,6 +2,10 @@ body{
     font-family: sans-serif;
 }
 
+.page-content{
+    filter: blur(5px)
+}
+
 nav {
     background-color: #333;
     display: flex;
@@ -33,6 +37,23 @@ nav li a:hover {
     background-color: #3492eb;
 }
 
+.pop-up{
+    width: 300px;
+    height: 200px;
+    color: #3492eb;
+    background-color:white;
+    border: 1px solid #ccc;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000;
+}
+.text-popup{
+    font-size: larger;
+}
+=======
 ul {
     list-style-type: none;
 }
