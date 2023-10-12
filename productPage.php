@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel= "stylesheet" href= "style.css">
         <link id="additional-styles" rel="stylesheet" type="text/css" href="styleProductPage.css" disabled>
+        <script defer src="product.js"></script>
       </head>
     <body>
       <div class="navbar">
@@ -19,7 +20,8 @@
             <a href="loginPage.php">Login</a>
           </div>
      </div>
-
+     <input id="searchbar" onkeyup="getVal()" type="text" name="search" placeholder="Whey, Compléments...">
+     
      <?php
 
 include ("./connexion.php");
@@ -35,7 +37,7 @@ while ($row = mysqli_fetch_assoc($resultat)) {
     echo '<div class="produit-block">';
     echo '<img src="' . $row['image'] . '" alt="' . $row['titre'] . '">';
     echo '<div class= "text-product">';
-    echo '<h2>' . $row['titre'] . '</h2>';
+    echo '<h2 class="title-product">' . $row['titre'] . '</h2>';
     echo '<p><b>' . $row['prix'] . '</b></p>';
     echo '<p class="product-desc">' . $row['description'] . '</p>';
     echo '</div>';
@@ -189,5 +191,4 @@ echo '</script>';
   </footer>
     </body>
 </html>
-
 

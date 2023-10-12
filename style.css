@@ -330,6 +330,8 @@ ul {
     padding: 0.75em;
     resize: none;
     border: 2px solid #3492eb;
+    margin: 2%;
+
 }
 
 
@@ -345,3 +347,4 @@ ul {
 .loginForm{
     margin: 8%;
 }
+
