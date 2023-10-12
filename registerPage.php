@@ -64,8 +64,8 @@ include('./connexion.php');
             <a href="contactForm.php">Contact</a>
          </div>
          <div>
-           <a href="registerPage.php">S'identifier</a>
-           <a href="loginPage.php">Login</a> 
+           <a href="registerPage.php">Inscription</a>
+           <a href="loginPage.php">Se connecter</a> 
           </div>
      </div>
         <form method="post">

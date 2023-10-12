@@ -32,8 +32,8 @@
             <a href="contactForm.php">Contact</a>
          </div>
          <div>
-          <a href="registerPage.php">S'identifier</a>
-          <a href="loginPage.php">Login</a> 
+          <a href="registerPage.php">Inscription</a>
+          <a href="loginPage.php">Se connecter</a>
           </div>
      </div>
     <h3 class ="text-important">La reférences N°1 des compléments alimentaires !</h3>
