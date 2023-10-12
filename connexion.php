@@ -1,8 +1,8 @@
 <?php
 
-$connexion = new mysqli("localhost", "root", "", "bddsite");
+$mysqli = new mysqli("localhost", "root", "", "bddsite");
 
-if ($connexion -> connect_error){
+if ($mysqli -> connect_error){
     printf("Erreur : Connexion impossible : ". $connexion->connect_errno);
     exit();
 }
