@@ -13,13 +13,13 @@ include('./connexion.php');
         <div class="navbar">
         <div class="navbar-logo">
             <img src="Images/logo2.png" alt="Logo" width="70px">
-            <a href="index.html">Accueil</a>
+            <a href="index.php">Accueil</a>
             <a class="dropbtn" href="productPage.php">Produits</a>
-            <a href="contactForm.html">Contact</a>
+            <a href="contactForm.php">Contact</a>
          </div>
          <div>
-           <a href="#login">S'identifier</a>
-           <a href="#login">Login</a> 
+           <a href="registerPage.php">S'identifier</a>
+           <a href="loginPage.php">Login</a> 
           </div>
      </div>
             <div class="form-group">

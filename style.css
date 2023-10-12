@@ -338,3 +338,10 @@ ul {
 .form-contact{
     margin-bottom: 50px !important;
 }
+
+
+/*Login Page*/
+
+.loginForm{
+    margin: 8%;
+}

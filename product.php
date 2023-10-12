@@ -14,8 +14,8 @@
                 <a href="contactForm.html">Contact</a>
              </div>
              <div>
-               <a href="#login">S'identifier</a>
-               <a href="#login">Login</a> 
+                <a href="registerPage.php">S'identifier</a>
+                <a href="loginPage.php">Login</a>
               </div>
          </div>
 
