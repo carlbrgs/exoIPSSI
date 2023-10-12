@@ -1,16 +1,13 @@
-<?php 
-session_start();
-include('./connexion.php');
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    </head>
+        <title>contact</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel= "stylesheet" href= "style.css">
+        <link id="additional-styles" rel="stylesheet" type="text/css" href="styleProductPage.css" disabled>
+      </head>
     <body>
-        <form action="" method="post">
-        <div class="navbar">
+      <div class="navbar">
         <div class="navbar-logo">
             <img src="Images/logo2.png" alt="Logo" width="70px">
             <a href="index.html">Accueil</a>
@@ -22,23 +19,38 @@ include('./connexion.php');
            <a href="#login">Login</a> 
           </div>
      </div>
-            <div class="form-group">
-                <label for="exampleInputNickname1">Pseudonyme</label>
-                <input type="text" class="form-control" id="exampleInputNickname1" aria-describedby="NicknameHelp" placeholder="Entrer pseudo" name="nickname">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer email" name="email">
-                <small id="emailHelp" class="form-text text-muted">On n'ira pas transmettre votre mail hein</small>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
-            </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
 
-        <footer
+     <?php
+
+include ("./connexion.php");
+
+$sql = "SELECT titre, description, image, prix FROM produits";
+$resultat =  $mysqli->query($sql);
+
+// Création de la div contenant les produits
+echo '<div class="liste-produits">';
+
+// Boucle pour afficher chaque produit
+while ($row = mysqli_fetch_assoc($resultat)) {
+    echo '<div class="produit-block">';
+    echo '<img src="' . $row['image'] . '" alt="' . $row['titre'] . '">';
+    echo '<div class= "text-product">';
+    echo '<h2>' . $row['titre'] . '</h2>';
+    echo '<p><b>' . $row['prix'] . '</b></p>';
+    echo '<p class="product-desc">' . $row['description'] . '</p>';
+    echo '</div>';
+    echo '</div>';
+}
+
+// Fermeture de la div contenant les produits
+echo '</div>';
+
+echo '<script>';
+echo 'document.getElementById("additional-styles").removeAttribute("disabled");';
+echo '</script>';
+
+?>
+          <footer
           class="text-center text-lg-start text-white"
           style="background-color: #1c2331"
           >
@@ -178,16 +190,4 @@ include('./connexion.php');
     </body>
 </html>
 
-<?php
-if(isset($_POST['nickname'])){
-    $nickname = $_POST['nickname'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-    $stmt = $mysqli->prepare("INSERT INTO users(pseudo, email, password) VALUES (?, ?, ?)");
-
-    $stmt->bind_param("sss", $nickname, $email, $password);
-    $stmt->execute();
-}
-
-?>
