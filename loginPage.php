@@ -1,4 +1,38 @@
+<?php
+session_start();
+include('./connexion.php');
 
+if(isset($_POST['email'])){
+    $emailInput = $_POST['email'];
+    $pswInput =  $_POST['password'];
+
+    $sql = "SELECT pseudo, email, password FROM users WHERE email = '$emailInput'";
+    $resultat = $mysqli->query($sql);
+    
+    // Vérification et comparaison du mot de passe
+    if ($resultat) {
+        if ($resultat->num_rows > 0) {
+            $row = $resultat->fetch_assoc();
+            $passwordFromDatabase = $row['password'];
+            $pseudo = $row['pseudo'];
+
+
+            if ($passwordFromDatabase == $pswInput) {
+                $_SESSION['user'] = $pseudo;
+                header('Location:index.php');
+                exit();
+            } else {
+                echo "Mot de passe incorrect";
+            }
+        } else {
+            echo "Aucun utilisateur trouvé avec cet e-mail.";
+        }
+    } else {
+        echo "Erreur de requête : " . $mysqli->error;
+    }
+    $mysqli->close();
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,17 +42,18 @@
     <body>
     <div class="navbar">
         <div class="navbar-logo">
-            <img src="votre-logo.png" alt="Logo">
-            <a href="index.html">Accueil</a>
-            <a class="dropbtn" href="#produits">Produits</a>
-            <a href="contact.html">Contact</a>
+            <img src="Images/logo2.png" alt="Logo" width="70px">
+            <a href="index.php">Accueil</a>
+            <a class="dropbtn" href="productPage.php">Produits</a>
+            <a href="contactForm.php">Contact</a>
          </div>
          <div>
-           <a href="#login">Login</a> 
+            <a href="registerPage.php">S'identifier</a>
+            <a href="loginPage.php">Login</a> 
           </div>
      </div>
 
-        <form action="" method="post">
+        <form class ="loginForm" action="" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer email" name="email">
@@ -171,39 +206,3 @@
     </body>
 </html>
 
-
-<?php
-
-include('./connexion.php');
-
-if(isset($_POST['email'])){
-    $emailInput = $_POST['email'];
-    $pswInput =  $_POST['password'];
-
-    $sql = "SELECT pseudo, email, password FROM users WHERE email = '$emailInput'";
-    $resultat = $mysqli->query($sql);
-    
-    // Vérification et comparaison du mot de passe
-    if ($resultat) {
-        if ($resultat->num_rows > 0) {
-            $row = $resultat->fetch_assoc();
-            $passwordFromDatabase = $row['password'];
-            $pseudo = $row['pseudo'];
-
-            if ($passwordFromDatabase == $pswInput) {
-                header("Location: index.html?user=".urlencode($pseudo));
-                exit();
-            } else {
-                echo "Mot de passe incorrect";
-            }
-        } else {
-            echo "Aucun utilisateur trouvé avec cet e-mail.";
-        }
-    } else {
-        echo "Erreur de requête : " . $mysqli->error;
-    }
-    $mysqli->close();
-}
-
-
-?>

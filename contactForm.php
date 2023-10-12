@@ -8,13 +8,14 @@
     <body>
       <div class="navbar">
         <div class="navbar-logo">
-            <img src="votre-logo.png" alt="Logo">
+            <img src="Images/logo2.png" alt="Logo" width="70px">
             <a href="index.html">Accueil</a>
-            <a class="dropbtn" href="#produits">Produits</a>
-            <a href="contact.html">Contact</a>
+            <a class="dropbtn" href="productPage.php">Produits</a>
+            <a href="contactForm.php">Contact</a>
          </div>
          <div>
-           <a href="#login">Login</a> 
+          <a href="registerPage.php">S'identifier</a>
+          <a href="loginPage.php">Login</a> 
           </div>
      </div>
 
